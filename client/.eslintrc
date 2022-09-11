@@ -1,6 +1,10 @@
 {
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
   "env": {
-    "browser": true
+    "browser": true,
+    "es6": true
   },
   "rules": {
     // Override our default settings just for this directory
