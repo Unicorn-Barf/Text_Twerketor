@@ -42,8 +42,8 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 //     })
 // );
 
-const imageCache =   new CacheFirst({
-  cacheName: 'my-image-cache',
+const assetCache = new CacheFirst({
+  cacheName: 'my-asset-cache',
   plugins: [
     new CacheableResponsePlugin({
       statuses: [0, 200],
@@ -55,4 +55,4 @@ const imageCache =   new CacheFirst({
   ],
 });
 
-registerRoute(({ request }) => request.mode === ['image', 'style', 'script', 'worker'], imageCache);
+registerRoute(({ request }) => ['image', 'style', 'script', 'worker'].includes(request.destination), assetCache);
